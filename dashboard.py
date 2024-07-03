@@ -24,7 +24,7 @@ def main():
 
     if not st.session_state.logged_in:
         # Create login form
-        username = st.text_input("Username")
+        username = st.text_input("Email")
         password = st.text_input("Password", type="password")
 
         if st.button("Login"):
@@ -50,4 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
