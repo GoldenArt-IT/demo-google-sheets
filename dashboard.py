@@ -12,8 +12,6 @@ def authenticate(username, password, credentials):
 
 # Main function to run the Streamlit app
 def main():
-    st.title("Login Page")
-
     # Initialize session state for login status
     if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
@@ -23,6 +21,7 @@ def main():
     credentials = load_credentials()
 
     if not st.session_state.logged_in:
+        st.title("Login Page")
         # Create login form
         username = st.text_input("Email")
         password = st.text_input("Password", type="password")
@@ -43,6 +42,7 @@ def main():
             st.rerun()
 
         # Google Sheets connection and data display
+        st.title("Data")
         conn = st.connection("gsheets", type=GSheetsConnection)
         df = conn.read(worksheet="Sheet1", ttl=5)
         df = df.dropna(how="all")
