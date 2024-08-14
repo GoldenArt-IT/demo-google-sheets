@@ -43,7 +43,7 @@ def main():
 
         # Google Sheets connection and data display
         st.title("Data")
-        conn = st.connection("gsheets", type=GSheetsConnection)
+        conn = st.experimental_connection("gsheets", type=GSheetsConnection)
         df = conn.read(worksheet="Sheet1", ttl=5)
         df = df.dropna(how="all")
         st.dataframe(df)
